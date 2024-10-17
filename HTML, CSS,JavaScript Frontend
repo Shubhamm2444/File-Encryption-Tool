@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d9534f; /* Bootstrap danger color */
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 10px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Encryption Tool</h1>
+        <form id="file-form">
+            <input type="file" id="file-input" required>
+            <button type="submit">Encrypt File</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('file-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const fileInput = document.getElementById('file-input');
+            const messageDiv = document.getElementById('message');
+
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                // Simulate encryption process
+                messageDiv.textContent = `Encrypting file: ${file.name}`;
+                // Here you would implement the actual encryption logic
+            } else {
+                messageDiv.textContent = 'Please select a file.';
+            }
+        });
+    </script>
+</body>
+</html>
